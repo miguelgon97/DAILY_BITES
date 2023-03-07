@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_favoritor
+
   has_many :user_ingredients
-  has_many :favorites
 
   validates :user_name, presence: true, uniqueness: true
 

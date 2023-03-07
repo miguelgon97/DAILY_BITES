@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :recipes, only: %i[index show]
+  resources :recipes, only: %i[index show] do
+    member do
+      post 'toggle_favorite', to: "recipes#toggle_favorite"
+    end
+  end
   resources :users, only: %i[show update]
   get "profile", to: "pages#profile"
 end

@@ -10,6 +10,8 @@ gem 'faker'
 
 gem "pg_search"
 
+gem 'acts_as_favoritor'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

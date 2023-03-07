@@ -1,2 +1,18 @@
-<h1>THIS IS PROFILE</h1>
+
 <h1>welcome <%= @user.email %></h1>
+<h2><%= @user.user_name %></h2>
+<div data-controller="favorite-toggle">
+  <a href="#"><button class="bites-button" data-action="click->favorite-toggle#toggle">click me</button></a>
+  <div class="recipe-container d-none" data-favorite-toggle-target="container">
+    <% @user.all_favorites.each do |favorite| %>
+      <div class="recipe-card-container">
+        <div class="recipe-card">
+          <div class="recipe-image"><img src="https://o.remove.bg/downloads/7cc56d3c-52bb-4567-9d4f-f1e4bbd32be6/anh-nguyen-kcA-c3f_3FE-unsplash-removebg-preview.png" alt=""></div>
+          <div class="recipe-info">
+            <h4><%= Recipe.find(favorite.favoritable_id).name %></h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
