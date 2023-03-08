@@ -1,5 +1,8 @@
 class RecipesController < ApplicationController
+
   before_action :authenticate_user!, only: :toggle_favorite
+
+
 
   def index
     @recipes = Recipe.all
