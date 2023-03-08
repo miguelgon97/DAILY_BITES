@@ -11,10 +11,11 @@ puts" destoying all ingredients"
 Ingredient.destroy_all
 
 puts "creating some ingredients"
+ingredients = []
+ 100.times do
+    ingredients << Ingredient.create(name: Faker::Food.ingredient )
+  end
 
-10.times do
-  Ingredient.create(name: Faker::Food.ingredient )
-end
 puts "done"
 
 puts "destroying all users"
@@ -34,16 +35,8 @@ Recipe.destroy_all
 puts "creating recipes"
 
 10.times do
-  Recipe.create(name:Faker::Food.dish, description: Faker::Food.description)
-
-
-puts 'Creating 10 fake recipes...'
-10.times do
-  recipes = Recipe.new(
-    name: Faker::Food.dish,
-    rating: rand(0..5),
-    description: Faker::Food.description,
-  )
-  recipes.save!
-
+  recipe = Recipe.create(name:Faker::Food.dish, description: Faker::Food.description)
+  10.times do
+    RecipeIngredient.create(recipe_id: recipe.id, ingredient_id: ingredients.sample.id)
+  end
 end

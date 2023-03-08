@@ -1,14 +1,3 @@
-<%= form_with url: recipes_path, method: :get, class: "d-flex mt-2" do  |f| %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find an ingredient"
-  %>
-  <%= submit_tag "Search", class: "bites-button" %>
-<% end %>
-
-<%= options_from_collection_for_select(Ingredient.all, :id, :name) %>
-
 <div class="recipe-container">
   <% @recipes.each do |recipe| %>
     <div class="recipe-card-container">
@@ -20,7 +9,6 @@
             <%= link_to toggle_favorite_recipe_path(recipe), data: { turbo_method: :post } do %>
               <i class="fa-solid fa-utensils"></i>
             <% end %>
-            <%= link_to "Show", recipe_path(recipe) %>
           </div>
         </div>
       </div>

@@ -5,7 +5,27 @@ class RecipesController < ApplicationController
 
 
   def index
-    @recipes = Recipe.all
+    if params[:query].present?
+
+      ingredient1 = Ingredient.where( name: "Chia Seeds")[0]
+      ingredient2 = Ingredient.where( name: "Mangosteens")[0]
+      ingredient3 = Ingredient.where( name: "Tangelo")[0]
+
+      initial_array = ingredient1.recipes
+      first_filter = initial_array.each do |recipe|
+          recipe.recipe_ingredients.filter do |recipe_ingredient|
+          recipe_ingredient.ingredient_id == ingredient2.id
+        end
+      end
+
+       @recipes = first_filter.each do |recipe|
+          recipe.recipe_ingredients.filter do |recipe_ingredient|
+          recipe_ingredient.ingredient_id == ingredient3.id
+        end
+      end
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
