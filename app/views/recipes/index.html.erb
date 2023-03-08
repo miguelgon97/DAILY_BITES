@@ -1,3 +1,17 @@
+
+<div class="recipe-container">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-card-container">
+      <div class="recipe-card">
+        <div class="recipe-image"><img src="https://o.remove.bg/downloads/a099439e-d2e7-445f-8468-38f8999cbd69/anh-nguyen-kcA-c3f_3FE-unsplash-removebg-preview.png" alt=""></div>
+        <div class="recipe-info">
+          <h4><%= recipe.name %></h4>
+          <div class="recipe-link">
+            <%= link_to toggle_favorite_recipe_path(recipe), data: { turbo_method: :post } do %>
+              <i class="fa-solid fa-utensils"></i>
+            <% end %>
+          </div>
+
 <h1>Recipes</h1>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +25,7 @@
           <h2 class="card-title orange-text"><%= recipe.name %></h2>
           <p class="card-text orange-text"><%= recipe.description %></p>
           <p class="card-text orange-text">Rating: <%= recipe.rating %> ⭐ </p>
+
         </div>
       </div>
     </div>

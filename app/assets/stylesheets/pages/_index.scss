@@ -1,6 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
 
+@import "recipecard";
+
+
 .orange-card {
   background-color: #fdfdfc;
   border-color: #FFA500;
@@ -181,3 +184,4 @@ ol > li::before {
   border-radius: 10px;
   box-shadow: 0px 10px 34px 10px #ffa500;
 }
+

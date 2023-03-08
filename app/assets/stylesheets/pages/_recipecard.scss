@@ -1,0 +1,78 @@
+.recipe-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+  width: 157px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+  padding: 5px;
+
+}
+
+.recipe-card h4 {
+  font-family: 'Rounded Mplus 1c';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.recipe-link i {
+  color: #F6A127;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  text-decoration: none;
+}
+
+.recipe-link a {
+  text-decoration: none;
+}
+
+.recipe-card-container {
+  display: flex;
+  align-items: end;
+  height: 159px;
+  margin-top: 16px;
+}
+
+.recipe-image {
+  display: flex;
+  justify-content: center;
+  height: 64px;
+  width: 104px;
+  border-radius: 0px;
+  }
+
+.recipe-image img {
+  position:absolute;
+  width: 100%;
+  bottom: 30%;
+}
+.recipe-container {
+  margin: 16px auto;
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.container-transition {
+  transition: all 5s ease-in;
+}
+
+.recipe-info {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.bites-button {
+  border-radius: 59px;
+  background-color:#F6A127;
+  color:white;
+  border:none;
+}
