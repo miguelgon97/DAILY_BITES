@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+
+.bg-homepage {
+  background-image: asset-url('homepage.jpg');
+  min-height: 100vh;
+  min-width: 100vw;
+  background-size: cover;
+}
+
+.texth {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  margin:auto;
+}
+ .benfica{
+  display: grid;
+  grid-template-rows: 60% 15% 25%;
+  height: 100vh;
+}
