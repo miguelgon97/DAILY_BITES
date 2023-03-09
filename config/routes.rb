@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: %i[show update]
+
+  get "ingredients", to: "ingredients#index"
   get "profile", to: "pages#profile"
 end

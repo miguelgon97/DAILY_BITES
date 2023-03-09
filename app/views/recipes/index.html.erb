@@ -1,3 +1,11 @@
+
+<div data-controller="ingredient-value">
+<%= simple_form_for :search, url: recipes_path, method: :get, remote:true do |f| %>
+ <%= f.input :ingredient,collection: Ingredient.all, input_html: {value: ""},selected: @selected_ingredient, include_blank: false %>
+ <%= f.submit "Search", class: "bites-button" %>
+<% end %>
+</div>
+  <%# <%= options_from_collection_for_select(Ingredient.all, :id, :name) %>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">

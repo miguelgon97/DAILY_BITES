@@ -2,7 +2,18 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: :toggle_favorite
 
   def index
-    @recipes = Recipe.all
+    @ingredients = Ingredient.all
+    @selected_ingredient = Ingredient.first
+
+    if params[:search].present?
+
+      @selected_ingredient = params[:search][:ingredient]
+
+      @recipes = Ingredient.find(@selected_ingredient).recipes
+
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show

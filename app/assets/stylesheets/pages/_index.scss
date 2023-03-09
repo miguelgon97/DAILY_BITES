@@ -2,6 +2,7 @@
 @import "home";
 
 @import "recipecard";
+@import "profile";
 
 
 .orange-card {
@@ -45,7 +46,6 @@
   margin-top : 10,5%;
   text-align: center;
 }
-
 
 
 .orange-card:hover {
@@ -177,7 +177,9 @@ ol > li::before {
   border-radius: 10px;
 }
 
+
 #details i {
   color: #FFA500;
   margin-top: 5px;
 }
+
