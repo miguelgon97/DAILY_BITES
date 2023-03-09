@@ -18,6 +18,7 @@ module DAILYBites
     config.assets.paths << Rails.root.join("app/javascript")
     # Configuration for the application, engines, and railties goes here.
     config.autoload_paths += %W(#{config.root}/lib)
+    config.assets.css_compressor = nil
 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
