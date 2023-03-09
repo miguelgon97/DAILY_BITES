@@ -84,4 +84,7 @@ group :test do
 end
 
 gem 'nokogiri'
-gem 'faker'
+gem 'openssl'
+gem 'json'
+gem 'rest-client'
+gem 'byebug'
