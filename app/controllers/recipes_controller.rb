@@ -5,24 +5,15 @@ class RecipesController < ApplicationController
 
 
   def index
-    if params[:query].present?
+    @ingredients = Ingredient.all
+    @selected_ingredient = Ingredient.first
 
-      ingredient1 = Ingredient.where( name: "Chia Seeds")[0]
-      ingredient2 = Ingredient.where( name: "Mangosteens")[0]
-      ingredient3 = Ingredient.where( name: "Tangelo")[0]
+    if params[:search].present?
 
-      initial_array = ingredient1.recipes
-      first_filter = initial_array.each do |recipe|
-          recipe.recipe_ingredients.filter do |recipe_ingredient|
-          recipe_ingredient.ingredient_id == ingredient2.id
-        end
-      end
+      @selected_ingredient = params[:search][:ingredient]
 
-       @recipes = first_filter.each do |recipe|
-          recipe.recipe_ingredients.filter do |recipe_ingredient|
-          recipe_ingredient.ingredient_id == ingredient3.id
-        end
-      end
+      @recipes = Ingredient.find(@selected_ingredient).recipes
+
     else
       @recipes = Recipe.all
     end

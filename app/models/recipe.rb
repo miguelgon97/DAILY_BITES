@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   pg_search_scope :recipe_search,
                   against: [:name, :description],
                   associated_against: {
-                    ingredient: [ :name]
+                    ingredient: [:name]
                   },
                   using: {
                     tsearch: { prefix: true }
