@@ -58,20 +58,25 @@
 
 
 #show-card {
-  background: #ededed;
-  box-shadow: 0px 0px 200px #999;
+  box-shadow: 0px 0px 200px #f4f4f4;
   font-family: 'Oxygen', sans-serif;
   width: 65%;
   margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #show-card-title {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: xx-large;
   display: flex;
   justify-content: space-around;
-  height: 50px;
+  height: 75px;
   align-items: center;
+  border-bottom: #FFA500;
+  background-color: #f4f4f4;
+  font-size: x-large;
+  text-align: center;
 }
 
 #show-card-item-title {
@@ -79,29 +84,30 @@
   font-family: 'Oxygen', sans-serif;
   font-weight: 700;
   font-size: 25px;
-  background: #455560;
+  background: #f4f4f4;
   padding: 15px 20px;
-  color: #fff;
+  color: #f4f4f4;
   border-radius: 2px 2px 0 0;
 }
 
 #details {
-  background: #fff;
-  border-left: solid 1px #ededed;
-  border-right: solid 1px #ededed;
-  font-size: 16px;
-  font-family: 'Oxygen', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  background: #f4f4f4;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   padding: 15px 20px;
 }
 
 .detail-value {
-  color: #455560;
+  color: black;
 }
 
 #show-card-items {
-  background: #ededed;
+  background: #f4f4f4;
   font-family: 'Oxygen', sans-serif;
-  padding: 20px
+  padding: 20px;
+  border-TOP: solid 1px #FFA500;
 }
 
 .show-card-item-title {
@@ -111,7 +117,7 @@
 }
 
 ul.checkmark li:before {
-    color: #455560;
+    color: #FFA500;
     content:"\2713\0020";
     font-weight: 600;
     margin-left: -38px;
@@ -123,15 +129,13 @@ ul.checkmark li:before {
   margin-top: 15px;
 }
 
-li {
+.show-card li {
   margin-bottom: 3px;
 }
 
 #method {
-  background: #fff;
-  border-left: solid 1px #ededed;
-  border-right: solid 1px #ededed;
-  border-bottom: solid 1px #ededed;
+  background: #f4f4f4;
+  border-TOP: solid 1px #FFA500;
   padding: 20px;
 }
 
@@ -146,8 +150,11 @@ li {
 #recipe-image {
   background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80');
   overflow: hidden;
-  height: 535px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
   background-size: cover;
+  background-position-x: center;
 }
 
 ol {
@@ -162,10 +169,17 @@ ol > li::before {
   font-weight: bold;
   content: counter(item) ".";
   margin-right: 8px;
+  COLOR: #FFA500;
 }
 
 #show-card {
-  border: 2px solid #FFA500;
+  width: 360px;
   border-radius: 10px;
-  box-shadow: 0px 10px 34px 10px #ffa500;
 }
+
+
+#details i {
+  color: #FFA500;
+  margin-top: 5px;
+}
+
