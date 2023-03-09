@@ -3,31 +3,37 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
 <div id="show-card">
+  <div class="back-link">
+    <%= link_to recipes_path do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
   <div id="show-card-title"><%= @recipe.name %></div>
-  <div id="recipe-image"></div>
-  <div id="details">Prep time: <span class="detail-value">10 minutes</span> | Cook time: <span class="detail-value">55 minutes</span> | Yield: <span class="detail-value">Makes one loaf</span></div>
+  <div class="recipe-link">
+    <% if current_user.favorited?(@recipe) %>
+      <i class="fa-solid fa-heart"></i>
+    <% else %>
+      <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="d-flex">
+    <div id="recipe-image">
+      <%= image_tag @recipe.photo_url %>
+    </div>
+  </div>
+  <div id="details"><i class="fa-regular fa-clock"></i> <span class="detail-value"><%= rand(0..60) %> minutes</span> | <i class="fa-solid fa-fire"></i><span class="detail-value"> <%= rand(0..1000) %> Calories </span> | <i class="fa-solid fa-star"></i><span class="detail-value"> <%= rand (0..5) %> </span></div>
   <div id="show-card-items">
     <span class="show-card-item-title">Ingredients</span>
-    <ul class="checkmark">
-      <li>2 to 3 very ripe bananas, peeled</li>
-      <li>1/3 cup melted butter</li>
-      <li>1 teaspoon baking soda</li>
-      <li>Pinch of salt</li>
-      <li>3/4 cup sugar (1/2 cup if you would like it less sweet, 1 cup if more sweet)</li>
-      <li>1 large egg, beaten</li>
-      <li>1 teaspoon vanilla extract</li>
-      <li>1 1/2 cups of all-purpose flour</li>
-    </ul>
   </div>
 
   <div id="method">
     <span class="show-card-item-title">Method</span>
     <ol>
-      <li>Preheat the oven to 350°F (175°C), and butter a 4x8-inch loaf pan.</li>
-      <li>In a mixing bowl, mash the ripe bananas with a fork until completely smooth. Stir the melted butter into the mashed bananas.</li>
-      <li>Mix in the baking soda and salt. Stir in the sugar, beaten egg, and vanilla extract. Mix in the flour.</li>
-      <li>Pour the batter into your prepared loaf pan. Bake for 50 minutes to 1 hour at 350°F (175°C), or until a tester inserted into the center comes out clean.</li>
-      <li>Remove from oven and let cool in the pan for a few minutes. Then remove the banana bread from the pan and let cool completely before serving. Slice and serve. (A bread knife helps to make slices that aren't crumbly.)</li>
-    </ul>
+      <% ActionView::Base.full_sanitizer.sanitize(@recipe.description).split(".").each do |line|%>
+      <li> <%= line %> </li>
+      <% end %>
+    </ol>
   </div>
 </div>
