@@ -1,0 +1,30 @@
+
+<div data-controller="ingredient-value">
+<%= simple_form_for :search, url: recipes_path, method: :get, remote:true do |f| %>
+ <%= f.input :ingredient,collection: Ingredient.all, input_html: {value: ""},selected: @selected_ingredient, include_blank: false %>
+ <%= f.submit "Search", class: "bites-button" %>
+<% end %>
+</div>
+  <%# <%= options_from_collection_for_select(Ingredient.all, :id, :name) %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+<div class="recipe-container">
+  <% @recipes.each do |recipe| %>
+      <div class="recipe-card-container">
+    <%= link_to recipe_path(recipe) do %>
+        <div class="recipe-card">
+          <div class="recipe-image"><%= image_tag recipe.photo_url %></div>
+          <div class="recipe-info">
+            <h4><%= recipe.name %></h4>
+            <div class="recipe-link">
+              <%= link_to toggle_favorite_recipe_path(recipe), data: { turbo_method: :post } do %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

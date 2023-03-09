@@ -1,0 +1,39 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+<div id="show-card">
+  <div class="back-link">
+    <%= link_to recipes_path do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
+  <div id="show-card-title"><%= @recipe.name %></div>
+  <div class="recipe-link">
+    <% if current_user.favorited?(@recipe) %>
+      <i class="fa-solid fa-heart"></i>
+    <% else %>
+      <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="d-flex">
+    <div id="recipe-image">
+      <%= image_tag @recipe.photo_url %>
+    </div>
+  </div>
+  <div id="details"><i class="fa-regular fa-clock"></i> <span class="detail-value"><%= rand(0..60) %> minutes</span> | <i class="fa-solid fa-fire"></i><span class="detail-value"> <%= rand(0..1000) %> Calories </span> | <i class="fa-solid fa-star"></i><span class="detail-value"> <%= rand (0..5) %> </span></div>
+  <div id="show-card-items">
+    <span class="show-card-item-title">Ingredients</span>
+  </div>
+
+  <div id="method">
+    <span class="show-card-item-title">Method</span>
+    <ol>
+      <% ActionView::Base.full_sanitizer.sanitize(@recipe.description).split(".").each do |line|%>
+      <li> <%= line %> </li>
+      <% end %>
+    </ol>
+  </div>
+</div>

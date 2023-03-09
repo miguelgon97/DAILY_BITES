@@ -4,5 +4,14 @@
 
 import { application } from "./application"
 
+import FavoriteToggleController from "./favorite_toggle_controller"
+application.register("favorite-toggle", FavoriteToggleController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import IngredientValueController from "./ingredient_value_controller"
+application.register("ingredient-value", IngredientValueController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

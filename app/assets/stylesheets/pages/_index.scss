@@ -1,2 +1,185 @@
 // Import page-specific CSS files here.
 @import "home";
+
+@import "recipecard";
+@import "profile";
+
+
+.orange-card {
+  background-color: #fdfdfc;
+  border-color: #FFA500;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  height: 100%;
+}
+
+.orange-text {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-transform: capitalize;
+
+  color: #000000;
+}
+.card-img-top {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.card-body h2 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: #000000;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.card-body p {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-top : 10,5%;
+  text-align: center;
+}
+
+
+.orange-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: orange;
+}
+
+
+
+
+#show-card {
+  box-shadow: 0px 0px 200px #f4f4f4;
+  font-family: 'Oxygen', sans-serif;
+  width: 65%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#show-card-title {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  height: 75px;
+  align-items: center;
+  border-bottom: #FFA500;
+  background-color: #f4f4f4;
+  font-size: x-large;
+  text-align: center;
+}
+
+#show-card-item-title {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  background: #f4f4f4;
+  padding: 15px 20px;
+  color: #f4f4f4;
+  border-radius: 2px 2px 0 0;
+}
+
+#details {
+  display: flex;
+  justify-content: space-around;
+  background: #f4f4f4;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 15px 20px;
+}
+
+.detail-value {
+  color: black;
+}
+
+#show-card-items {
+  background: #f4f4f4;
+  font-family: 'Oxygen', sans-serif;
+  padding: 20px;
+  border-TOP: solid 1px #FFA500;
+}
+
+.show-card-item-title {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+ul.checkmark li:before {
+    color: #FFA500;
+    content:"\2713\0020";
+    font-weight: 600;
+    margin-left: -38px;
+    margin-right: 10px;
+}
+
+.checkmark li {
+  list-style-type: none;
+  margin-top: 15px;
+}
+
+.show-card li {
+  margin-bottom: 3px;
+}
+
+#method {
+  background: #f4f4f4;
+  border-TOP: solid 1px #FFA500;
+  padding: 20px;
+}
+
+#method li {
+  list-style-position: inside;
+  margin-bottom: 10px;
+  margin-left: -38px;
+  list-style-type: none;
+  margin-top: 15px;
+}
+
+#recipe-image {
+  background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80');
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position-x: center;
+}
+
+ol {
+  counter-reset: item;
+}
+
+ol > li {
+  counter-increment: item;
+}
+
+ol > li::before {
+  font-weight: bold;
+  content: counter(item) ".";
+  margin-right: 8px;
+  COLOR: #FFA500;
+}
+
+#show-card {
+  width: 360px;
+  border-radius: 10px;
+}
+
+
+#details i {
+  color: #FFA500;
+  margin-top: 5px;
+}
+

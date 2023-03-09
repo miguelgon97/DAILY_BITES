@@ -1,0 +1,78 @@
+<div class="profile-card"><strong>Welcome</strong></div>
+<div>
+  <ul class="nav nav-tabs profile-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active profile-nav" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link profile-nav" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"  data-action="click->favorite-toggle#toggle">Favorites</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link profile-nav" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Weeckly Plan</button>
+    </li>
+  </ul>
+</div>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade recipe-container" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <% @user.all_favorites.each do |favorite| %>
+        <div class="recipe-card-container">
+          <div class="recipe-card">
+            <div class="recipe-image"><img src="https://o.remove.bg/downloads/7cc56d3c-52bb-4567-9d4f-f1e4bbd32be6/anh-nguyen-kcA-c3f_3FE-unsplash-removebg-preview.png" alt=""></div>
+            <div class="recipe-info">
+              <h4><%= Recipe.find(favorite.favoritable_id).name %></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <div class="card user-card">
+      <div class="card-header">
+        <h5><i class="fa-solid fa-pen-to-square "></i></h5>
+      </div>
+      <div class="card-block">
+        <div class="user-image">
+          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-radius" alt="User-Profile-Image">
+        </div>
+        <h6 class="f-w-600 m-t-25 m-b-10"><%= @user.user_name %></h6>
+        <p class="text-muted"><%= @user.first_name %> | <%= @user.last_name %> | Born 23.05.1992</p>
+        <hr>
+        <p class="text-muted m-t-15"><%= @user.email %></p>
+        <ul class="list-unstyled activity-leval">
+          <li class="active"></li>
+          <li class="active"></li>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="bg-c-yellow counter-block m-t-10 p-20">
+          <div class="row">
+            <div class="col-4">
+              <i class="fa-solid fa-heart"></i>
+              <p><%= @user.all_favorites.count %></p>
+            </div>
+            <div class="col-4">
+              <i class="fa fa-user"></i>
+              <p>8562</p>
+            </div>
+            <div class="col-4">
+              <i class="fa fa-suitcase"></i>
+              <p>189</p>
+            </div>
+          </div>
+        </div>
+        <p class="m-t-15 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <hr>
+        <div class="row justify-content-center user-social-link">
+          <div class="col-auto"><a href="#!"><i class="fa-brands fa-square-facebook text-facebook"></i></a></div>
+          <div class="col-auto"><a href="#!"><i class="fa-brands fa-square-twitter text-twitter"></i></a></div>
+          <div class="col-auto"><a href="#!"><i class="fa-brands fa-square-instagram text-dribbble"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+   TODO!!!
+  </div>
+</div>
