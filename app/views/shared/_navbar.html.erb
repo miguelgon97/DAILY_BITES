@@ -14,20 +14,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">List</a>
+          <% if user_signed_in? %>
+            <%= link_to "Recipes", recipes_path, class: "dropdown-item"  %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profiles</a>
+            <%= link_to "Profile", profile_path, class: "dropdown-item" %>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#">Log out</a>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
           </li>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
+          <% else %>
+            <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
+        <% end %>
           <!--li class="nav-item"-->
           <!--/li-->
       </ul>
