@@ -7,6 +7,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 # puts" destoying all ingredients"
 
 # Ingredient.destroy_all
@@ -84,3 +85,4 @@ puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 #     description: recipe_info["instructions"],
 #     prep_time: recipe_info["preparationMinutes"]
 #   )
+

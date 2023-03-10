@@ -14,7 +14,7 @@
       <i class="fa-solid fa-heart"></i>
     <% else %>
       <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
-        <i class="fa-regular fa-heart"></i>
+        <i class="fa-regular fa-heart" data-controller="favorite" data-controller-target="icon"data-action="click->favorite#toggle"></i>
       <% end %>
     <% end %>
   </div>
@@ -31,9 +31,7 @@
   <div id="method">
     <span class="show-card-item-title">Method</span>
     <ol>
-      <% ActionView::Base.full_sanitizer.sanitize(@recipe.description).split(".").each do |line|%>
-      <li> <%= line %> </li>
-      <% end %>
+    <%= @recipe.description %>
     </ol>
   </div>
 </div>
