@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :user_ingredients
   has_many :ingredients, through: :user_ingredients
 
-  validates :user_name, presence: true, uniqueness: true
+  #validates :user_name, presence: true, uniqueness: true
 
 end
