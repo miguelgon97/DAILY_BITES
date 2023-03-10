@@ -1,7 +1,7 @@
 
-<div data-controller="ingredient-value">
+<div class="mt-2">
 <%= simple_form_for :search, url: recipes_path, method: :get, remote:true do |f| %>
- <%= f.input :ingredient,collection: Ingredient.all, input_html: {value: ""},selected: @selected_ingredient, include_blank: false %>
+ <%= f.input :ingredient,collection: Ingredient.all, input_html: {value: "", class:"one-email"},selected: @selected_ingredient, include_blank: false, label: false %>
  <%= f.submit "Search", class: "bites-button" %>
 <% end %>
 </div>
