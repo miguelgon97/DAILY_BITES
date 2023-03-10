@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
+
 import FavoriteToggleController from "./favorite_toggle_controller"
 application.register("favorite-toggle", FavoriteToggleController)
 
