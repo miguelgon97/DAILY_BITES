@@ -5,9 +5,6 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link profile-nav" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"  data-action="click->favorite-toggle#toggle">Favorites</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link profile-nav" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Weekly Plan</button>
-  </li>
 </ul>
 </div>
 <div class="tab-content" id="myTabContent">
@@ -32,7 +29,9 @@
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="card user-card">
         <div class="card-header">
-          <h5><i class="fa-solid fa-pen-to-square "></i></h5>
+          <%= link_to :back do %>
+          <i class="fa-solid fa-angle-left"></i>
+          <% end %>
         </div>
         <div class="card-block">
           <div class="user-image">
@@ -76,16 +75,4 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-   TODO!!!
-  </div>
 </div>
-
-<%# find the ingredients from the recipe
-    <% Recipe.find(favorite.favoritable_id).ingredients.each do |ingredient| %>
-              <%# <%= ingredient.name %>
-              <%# <% end %>
-<%#  we can do .sample.name  5 times and gives 5 ingredients to work with  we can save those ingredients on a most used array and use it to the weekly plan array%>
-<%# weekly plan can be the recipes that !!!include any of the 5 ingredients 7 recipes one for each day save them in an array %>
-<%#  array of recipes and sample aswell 7 times %>
-<%# should work %>

@@ -7,7 +7,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
+PHOTOS = ["https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1673900496/s6nqcj4a04urtomwrywg.jpg",
+          "https://avatars.githubusercontent.com/u/121889479?v=4",
+          "https://avatars.githubusercontent.com/u/106925364?v=4",
+          "https://avatars.githubusercontent.com/u/75217688?v=4",
+          "https://avatars.githubusercontent.com/u/15888953?v=4"
+]
 # puts" destoying all ingredients"
 
 # Ingredient.destroy_all
@@ -26,9 +31,9 @@
 
 # puts "creating users"
 
-# 5.times do
-#   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::Internet.username)
-# end
+5.times do
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::Internet.username, photo: PHOTOS.sample)
+end
 
 require "json"
 require "rest-client"
@@ -85,4 +90,3 @@ puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 #     description: recipe_info["instructions"],
 #     prep_time: recipe_info["preparationMinutes"]
 #   )
-

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       post 'toggle_favorite', to: "recipes#toggle_favorite"
     end
+    resources :reviews, only: %i[create]
   end
   resources :users, only: %i[show update]
 

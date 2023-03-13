@@ -16,5 +16,11 @@ application.register("hello", HelloController)
 import IngredientValueController from "./ingredient_value_controller"
 application.register("ingredient-value", IngredientValueController)
 
+import ReviewsController from "./reviews_controller"
+application.register("reviews", ReviewsController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
