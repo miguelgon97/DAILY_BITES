@@ -6,10 +6,7 @@ class RecipesController < ApplicationController
     @selected_ingredient = Ingredient.first
 
     if params[:search].present?
-
-      @selected_ingredient = params[:search][:ingredient]
-
-      @recipes = Ingredient.find(@selected_ingredient).recipes
+      @recipes = Recipe.includes(recipe_ingredients: :ingredient).where(recipe_ingredients: { ingredient_id: params[:search][:ingredient] })
 
     else
       @recipes = Recipe.all

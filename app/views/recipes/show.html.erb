@@ -35,8 +35,8 @@
   </div>
 </div>
 <!-- MODAL -->
-<div class="center-modal">
-  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="center-modal" data-controller="modal-transition">
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" data-modal-transition-target="list">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -68,7 +68,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" data-modal-transition-target="items">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -78,7 +78,7 @@
         </div>
         <div class="modal-body">
           <div class="review-form">
-            <%= simple_form_for [@recipe, @review] do |f| %>
+            <%= simple_form_for [@recipe, @review], data: {modal_transition_target: "form", action: "submit->modal_transitiont#send"} do |f| %>
               <%= f.input :comment %>
               <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating", options: "{\"tooltip\":false}" } }, label: false %>
               <%= f.submit class:"btn bites-button create-button" %>

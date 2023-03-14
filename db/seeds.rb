@@ -25,15 +25,30 @@ PHOTOS = ["https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_2
 
 # puts "done"
 
-# puts "destroying all users"
+puts "destroying all users"
 
-# User.destroy_all
+User.destroy_all
 
-# puts "creating users"
-
+puts "creating users"
+users = []
 5.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::Internet.username, photo: PHOTOS.sample)
+  users << User.create(first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
+            email: Faker::Internet.email,
+            password: 123456,
+            user_name: Faker::Internet.username,
+            photo: PHOTOS.sample,
+            food_preferences: 3.times do
+              Faker::Food.dish
+            end,
+            allergies: 3.times do
+              Faker::Food.allergen
+            end
+          )
 end
+
+puts "done"
+
 
 require "json"
 require "rest-client"
