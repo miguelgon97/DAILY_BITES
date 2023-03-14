@@ -89,6 +89,8 @@
   padding: 15px 20px;
   color: #f4f4f4;
   border-radius: 2px 2px 0 0;
+  margin-bottom: 200px;
+  text-align: center;
 }
 
 #details {
@@ -109,12 +111,18 @@
   font-family: 'Oxygen', sans-serif;
   padding: 20px;
   border-TOP: solid 1px #FFA500;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .show-card-item-title {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
+  margin-bottom: 100px;
+  color:#FFA500;
+  -webkit-text-stroke-width:thin;
+  text-align: center;
 }
 
 ul.checkmark li:before {
@@ -182,4 +190,12 @@ ol > li::before {
 #details i {
   color: #FFA500;
   margin-top: 5px;
+}
+::marker {
+  color: #FFA500;
+}
+
+::before {
+  margin-right: 5px;
+  margin-left: 5px;
 }
