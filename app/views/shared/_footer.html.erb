@@ -1,0 +1,9 @@
+<footer style="height: 56px; background-color: #F7F7F7; display: flex; justify-content: space-around; align-items: center; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;">
+    <%= link_to recipes_path do %>
+      <i class="fa fa-home fa-lg" aria-hidden="true" style="text-decoration: none; color: #F6A127;"></i>
+    <% end %>
+    <%= image_tag("footer_img.png", style: "width: 55px; margin-left: -65px; margin-right: -65px; height: 55px;")%>
+    <%= link_to profile_path do %>
+      <i class="fa fa-user fa-lg" aria-hidden="true" style="text-decoration: none; color: #F6A127;"></i>
+    <% end %>
+</footer>
