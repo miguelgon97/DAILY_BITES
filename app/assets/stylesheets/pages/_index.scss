@@ -70,7 +70,6 @@
 
 #show-card-title {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  display: flex;
   justify-content: space-around;
   height: 75px;
   align-items: center;
@@ -78,6 +77,15 @@
   background-color: #f4f4f4;
   font-size: x-large;
   text-align: center;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  height: unset;
+  width: 75%;
+  background: transparent;
+  overflow: scroll;
+  white-space: nowrap;
 }
 
 #show-card-item-title {

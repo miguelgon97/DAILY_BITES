@@ -13,6 +13,8 @@ PHOTOS = ["https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_2
           "https://avatars.githubusercontent.com/u/75217688?v=4",
           "https://avatars.githubusercontent.com/u/15888953?v=4"
 ]
+
+number = [1, 2, 3, 4, 5]
 # puts" destoying all ingredients"
 
 # Ingredient.destroy_all
@@ -25,26 +27,27 @@ PHOTOS = ["https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_2
 
 # puts "done"
 
-puts "destroying all users"
-
+puts "destroying all users and Reviews"
+Review.destroy_all
 User.destroy_all
 
 puts "creating users"
 users = []
 5.times do
-  users << User.create(first_name: Faker::Name.first_name,
-            last_name: Faker::Name.last_name,
-            email: Faker::Internet.email,
-            password: 123456,
-            user_name: Faker::Internet.username,
-            photo: PHOTOS.sample,
-            food_preferences: 3.times do
-              Faker::Food.dish
-            end,
-            allergies: 3.times do
-              Faker::Food.allergen
-            end
-          )
+  users << User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 123456,
+    user_name: Faker::FunnyName.name,
+    photo: PHOTOS.sample,
+    food_preferences: 3.times do
+      Faker::Food.dish
+    end,
+    allergies: 3.times do
+      Faker::Food.ingredient
+    end
+  )
 end
 
 puts "done"
@@ -68,7 +71,12 @@ require 'byebug'
 # => repos is an `Array` of `Hashes`.
 response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number2&apiKey=#{ENV['SPOON_API_KEY']}"
 repos = JSON.parse(response1)
+puts "destroying all ingredients and recipes"
 
+RecipeIngredient.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+puts "Creating recipes and Ingredients"
 
 repos.each do |repo|
   response2 = RestClient.get "https://api.spoonacular.com/recipes/#{repo['id']}/information?includeNutrition=false&apiKey=#{ENV['SPOON_API_KEY']}"
@@ -83,20 +91,22 @@ repos.each do |repo|
         end
 
         unless unique_recipe = Recipe.find_by(name: repo["title"])
-          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"], ingredient: recipe_info["unique_ingredient"],)
+          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"])
         end
 
         unless RecipeIngredient.find_by(recipe: unique_recipe, ingredient: unique_ingredient)
           RecipeIngredient.create(recipe: unique_recipe, ingredient: unique_ingredient)
         end
-
+        5.times do
+          Review.create(comment: Faker::Marketing.buzzwords, rating: number.sample, user: users.sample, recipe: unique_recipe)
+        end
       end
     end
   end
 end
 
 puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
-
+puts "Created #{Review.count} reviews"
 
 
 #   Recipe.create(
@@ -106,4 +116,3 @@ puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 #     description: recipe_info["instructions"],
 #     prep_time: recipe_info["preparationMinutes"]
 #   )
-

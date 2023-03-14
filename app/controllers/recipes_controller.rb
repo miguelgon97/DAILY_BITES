@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   def toggle_favorite
     @recipe = Recipe.find_by(id: params[:id])
     current_user.favorited?(@recipe) ? current_user.unfavorite(@recipe) : current_user.favorite(@recipe)
-    flash[:notice] = "Favorited #{@recipe.title}"
+    flash[:notice] = "Favorited #{@recipe.name}"
   end
 
   private

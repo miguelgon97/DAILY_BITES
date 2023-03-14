@@ -1,4 +1,19 @@
 .search-form {
   width: auto;
   margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.search-input {
+  border-radius: 59px 0px 0px 59px;
+  border-color: #F6A127;
+}
+
+.bites-search-button {
+  border-radius: 0px 59px 59px 0px;
+  background-color: #F6A127;
+  color: white;
+  border: none;
 }

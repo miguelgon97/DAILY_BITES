@@ -1,30 +1,46 @@
 
-<div class="mt-2 search-form">
-<%= simple_form_for :search, url: recipes_path, method: :get, remote:true do |f| %>
- <%= f.input :ingredient,collection: Ingredient.all, input_html: { multiple: true, data: { controller: "tom-select", tom_select_options_value: {tags: true} } },selected: @selected_ingredient, include_blank: false, label: false %>
- <%= f.submit "Search", class: "bites-button" %>
-<% end %>
+<div class="search-form">
+  <%= simple_form_for :search,
+                      url: recipes_path,
+                      method: :get,
+                      remote:true,
+                      html: { class: "d-flex flex-grow-1" } do |f| %>
+    <%= f.input :ingredient,
+                collection: Ingredient.all,
+                wrapper_html: {
+                  class: "flex-grow-1",
+                  style: "margin-bottom: 0px !important"
+                },
+                input_html: {
+                  multiple: true,
+                  data: {
+                    controller: "tom-select",
+                    tom_select_options_value: {tags: true}
+                  },
+                  class:"search-input"
+                },
+                selected: @selected_ingredient,
+                include_blank: false,
+                label: false %>
+    <%= f.submit "Search", class: "bites-search-button" %>
+  <% end %>
 </div>
   <%# <%= options_from_collection_for_select(Ingredient.all, :id, :name) %>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
-<div class="recipe-container">
+<div class="recipe-container bottom-padding-footer">
   <% @recipes.each do |recipe| %>
-      <div class="recipe-card-container">
-    <%= link_to recipe_path(recipe) do %>
+    <div class="recipe-card-container">
+      <%= link_to recipe_path(recipe) do %>
         <div class="recipe-card">
           <div class="recipe-image"><%= image_tag recipe.photo_url %></div>
-          <div class="recipe-info">
+          <div class="recipe-info w-100">
             <h4><%= recipe.name %></h4>
-            <div class="recipe-link">
-              <%= link_to toggle_favorite_recipe_path(recipe), data: { turbo_method: :post } do %>
-              <% end %>
-            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
