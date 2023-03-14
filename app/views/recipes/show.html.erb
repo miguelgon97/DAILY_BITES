@@ -1,6 +1,3 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
 <div id="show-card" data-controller="reviews">
   <div class="back-link">
@@ -23,14 +20,21 @@
       <%= image_tag @recipe.photo_url %>
     </div>
   </div>
-  <div id="details"><i class="fa-regular fa-clock"></i> <span class="detail-value"><%= rand(0..60) %> minutes</span> | <i class="fa-solid fa-fire"></i><span class="detail-value"> <%= rand(0..1000) %> Calories </span> | <i class="fa-solid fa-star"></i><span class="detail-value"> <%= rand (0..5) %> </span></div>
+  <div id="details"><i class="fa-regular fa-clock"></i> <span class="detail-value"> <%= rand(0..60) %> minutes</span> | <i class="fa-solid fa-fire"></i><span class="detail-value"> <%= rand(0..1000) %> Calories </span> | <i class="fa-solid fa-star"></i><span class="detail-value"> <%= rand (0..5) %> </span></div>
   <div id="show-card-items">
     <span class="show-card-item-title">Ingredients</span>
+    <ul style="margin-top: 20px; columns: 2">
+      <% @recipe.ingredients.each do |ingredient| %>
+      <li style="margin-top: 0px">
+        <%= ingredient.name %>
+      </li>
+      <% end %>
+    </ul>
   </div>
   <div id="method">
     <span class="show-card-item-title">Method</span>
-    <ol>
-    <%= @recipe.description %>
+    <ol style="margin-top: 15px; word-spacing: 2px; margin-inline-start: -30px; text-align: justify">
+      <%= @recipe.description.html_safe %>
     </ol>
   </div>
 </div>
@@ -91,4 +95,3 @@
   </div>
   <a class="btn bites-button reviews-button" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Reviews</a>
 </div>
-

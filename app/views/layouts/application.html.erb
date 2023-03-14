@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+
     <% if !current_page?(root_path) %>
       <%= render "shared/navbar" %>
     <% end %>
-    <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
-
     <%= yield %>
+    <%= render "shared/flashes" %>
+    <% if !current_page?(root_path) %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>

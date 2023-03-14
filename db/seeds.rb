@@ -40,9 +40,6 @@ users = []
             photo: PHOTOS.sample,
             food_preferences: 3.times do
               Faker::Food.dish
-            end,
-            allergies: 3.times do
-              Faker::Food.allergen
             end
           )
 end
@@ -66,7 +63,7 @@ require 'byebug'
 #   end
 # end
 # => repos is an `Array` of `Hashes`.
-response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number2&apiKey=#{ENV['SPOON_API_KEY']}"
+response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=rice,+chicken,+spaghetti&number2&apiKey=#{ENV['SPOON_API_KEY']}"
 repos = JSON.parse(response1)
 
 
@@ -83,7 +80,7 @@ repos.each do |repo|
         end
 
         unless unique_recipe = Recipe.find_by(name: repo["title"])
-          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"], ingredient: recipe_info["unique_ingredient"],)
+          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"])
         end
 
         unless RecipeIngredient.find_by(recipe: unique_recipe, ingredient: unique_ingredient)
@@ -106,4 +103,3 @@ puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 #     description: recipe_info["instructions"],
 #     prep_time: recipe_info["preparationMinutes"]
 #   )
-
