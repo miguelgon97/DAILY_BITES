@@ -1,21 +1,19 @@
 
 <div id="show-card" data-controller="reviews">
-  <div class="back-link">
-    <%= link_to recipes_path do %>
-      <i class="fa-solid fa-angle-left"></i>
-    <% end %>
-  </div>
-  <div id="show-card-title"><%= @recipe.name %></div>
-  <div class="recipe-link">
-    <% if current_user.favorited?(@recipe) %>
-      <i class="fa-solid fa-heart" id="favorite-button"></i>
-      <% else %>
-      <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
-        <i class="fa-regular fa-heart" id="favorite-button" data-controller="favorite" data-controller-target="icon" data-action="click->favorite#toggle"></i>
+  <div class="position-relative">
+    <div class="back-link">
+      <%= link_to recipes_path, style: "font-size: 25px" do %>
+        <i class="fa-solid fa-angle-left"></i>
       <% end %>
-    <% end %>
+    </div>
+    <div id="show-card-title" class="position-absolute"><%= @recipe.name %></div>
   </div>
-  <div class="d-flex">
+  <div class="position-relative mt-4">
+    <div class="recipe-link position-absolute" style="bottom: 0; right: 0">
+      <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
+        <div class="like-icon <%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'  %>" data-id="<%= @recipe.id %>"></div>
+      <% end %>
+    </div>
     <div id="recipe-image">
       <%= image_tag @recipe.photo_url %>
     </div>
@@ -33,10 +31,16 @@
   </div>
   <div id="method">
     <span class="show-card-item-title">Method</span>
+
     <ol style="margin-top: 15px; word-spacing: 2px; margin-inline-start: -30px; text-align: justify">
       <%= @recipe.description.html_safe %>
     </ol>
   </div>
+     <div class="recipe-link">
+    <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
+      <div class="like-icon <%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'  %>" data-id="<%= @recipe.id %>"></div>
+    <% end %>
+    </div>
 </div>
 
 <!-- MODAL -->
