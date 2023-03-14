@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
 gem 'faker'
 
+gem "geocoder"
+
 gem "pg_search"
 
 gem 'acts_as_favoritor'

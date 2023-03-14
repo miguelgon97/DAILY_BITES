@@ -1,13 +1,14 @@
 // Specific CSS for your home-page
 
 .bg-homepage {
-  background-image: asset-url('homepage.jpg');
+  background-image: asset-url('homepage.png');
   min-height: 100vh;
   min-width: 100vw;
   background-size: cover;
 }
 
 .texth {
+  font-family:Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: row;
   align-content: flex-end;
@@ -20,8 +21,9 @@
 }
 
 .logo {
-  margin:auto;
-
+  top: 100px;
+  left: 50%;
+  transform: translate(-42%);
 }
 
 .benfica {
@@ -31,14 +33,19 @@
 }
 
 .button-home {
-  width: 350px;
+  font-family:Arial, Helvetica, sans-serif;
+  width: 150px;
+  height: 50px;
   border-radius: 20px;
-  border-color: white;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:#F6A127;
-  margin-left: 18px;
+  color:#F5835D;
+  margin-left: 125px;
+  padding-top: 8px;
+  border:0px;
+  margin-top: 40px;
 }
  .button-home a {
   text-decoration: none;
@@ -47,4 +54,3 @@
  body a {
   text-decoration: none;
  }
-
