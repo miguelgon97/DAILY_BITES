@@ -1,22 +1,22 @@
-
-<div class="bg-homepage">
+<div class="bg-homepage position-relative">
+  <%= image_tag 'titlehome', class: "logo position-absolute" %>
   <div class="benfica">
-    <div class="logo">
-      <%= image_tag url="dailybites.png"%>
+    <div>
+      <%= image_tag url="homepage.png"%>
     </div>
     <div class="texth">
       <p>Your smart meal planner.No more scrambling around hungry in the supermarket</p>
     </div>
     <div>
-        <% if user_signed_in? %>
-          <%= link_to recipes_path do %>
-             <button type="button" class="button-home">Let's start</button>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_path do %>
+      <% if user_signed_in? %>
+        <%= link_to recipes_path do %>
             <button type="button" class="button-home">Let's start</button>
-          <% end %>
         <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button type="button" class="button-home">Let's start</button>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
