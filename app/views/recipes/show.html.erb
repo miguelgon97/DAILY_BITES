@@ -2,7 +2,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
-<div id="show-card">
+<div id="show-card" data-controller="reviews">
   <div class="back-link">
     <%= link_to recipes_path do %>
       <i class="fa-solid fa-angle-left"></i>
@@ -27,12 +27,68 @@
   <div id="show-card-items">
     <span class="show-card-item-title">Ingredients</span>
   </div>
-
   <div id="method">
     <span class="show-card-item-title">Method</span>
     <ol>
     <%= @recipe.description %>
     </ol>
   </div>
+</div>
+
+<!-- MODAL -->
+<div class="center-modal" data-controller="modal-transition">
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" data-modal-transition-target="list">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 id="orange-text"><%= @reviews.count %></h1>
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel"> Reviews</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body link-color">
+          <% @reviews.each do |review| %>
+            <%= link_to user_path(review.user) do %>
+            <div class="card-product">
+              <img src="<%= review.photo %>" />
+              <div class="card-product-infos">
+                <h2><%= review.user_name %></h2>
+                <p><%= review.comment %></p>
+                <div class="icon-position">
+                  <% review.rating.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button class="btn bites-button create-button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Leave a Review</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" data-modal-transition-target="items">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fa-solid fa-angle-left" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"></i>
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Leave a Review</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="review-form">
+            <%= simple_form_for [@recipe, @review], data: {modal_transition_target: "form", action: "submit->modal_transitiont#send"} do |f| %>
+              <%= f.input :comment %>
+              <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating", options: "{\"tooltip\":false}" } }, label: false %>
+              <%= f.submit class:"btn bites-button create-button" %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="btn bites-button reviews-button" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Reviews</a>
 </div>
 

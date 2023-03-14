@@ -6,10 +6,7 @@ class RecipesController < ApplicationController
     @selected_ingredient = Ingredient.first
 
     if params[:search].present?
-
-      @selected_ingredient = params[:search][:ingredient]
-
-      @recipes = Ingredient.find(@selected_ingredient).recipes
+      @recipes = Recipe.includes(recipe_ingredients: :ingredient).where(recipe_ingredients: { ingredient_id: params[:search][:ingredient] })
 
     else
       @recipes = Recipe.all
@@ -18,10 +15,19 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @review = Review.new
+    @reviews = Review.where(recipe: @recipe)
   end
 
   def toggle_favorite
     @recipe = Recipe.find_by(id: params[:id])
     current_user.favorited?(@recipe) ? current_user.unfavorite(@recipe) : current_user.favorite(@recipe)
+    flash[:notice] = "Favorited #{@recipe.title}"
+  end
+
+  private
+
+  def review_params
+    params.require(:reviews).permit(:comment, :rating)
   end
 end

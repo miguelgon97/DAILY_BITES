@@ -1,0 +1,90 @@
+.review-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: white;
+  margin: 10px auto;
+  padding: 5px;
+  height: 60%;
+}
+
+.link-color a {
+  color: black
+}
+
+.link-color {
+  padding: 16px;
+}
+
+#orange-text {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #e67e22;
+}
+.center-modal {
+  display:flex;
+  justify-content: center;
+  margin: 32px;
+  border-TOP: solid 1px #FFA500;
+}
+
+.center-modal i {
+  color: #FFA500;
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.reviews-button {
+  margin-top: 16px;
+  width: 200px;
+}
+
+.create-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .8;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-product-infos i {
+  font-size: 10px;
+  margin-right: -5px
+}

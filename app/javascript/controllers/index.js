@@ -16,5 +16,14 @@ application.register("hello", HelloController)
 import IngredientValueController from "./ingredient_value_controller"
 application.register("ingredient-value", IngredientValueController)
 
+import ModalTransitionController from "./modal_transition_controller"
+application.register("modal-transition", ModalTransitionController)
+
+import ReviewsController from "./reviews_controller"
+application.register("reviews", ReviewsController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
