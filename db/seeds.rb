@@ -69,7 +69,7 @@ require 'byebug'
 #   end
 # end
 # => repos is an `Array` of `Hashes`.
-response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number2&apiKey=#{ENV['SPOON_API_KEY']}"
+response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=rice,+chicken,+spaghetti&number2&apiKey=#{ENV['SPOON_API_KEY']}"
 repos = JSON.parse(response1)
 puts "destroying all ingredients and recipes"
 
