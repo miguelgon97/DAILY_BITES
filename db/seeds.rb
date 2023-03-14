@@ -83,7 +83,7 @@ repos.each do |repo|
         end
 
         unless unique_recipe = Recipe.find_by(name: repo["title"])
-          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"], prep_time: recipe_info["preparationMinutes"])
+          unique_recipe = Recipe.create(name: repo["title"], rating: repo["spoonacularScore"], photo_url: repo["image"], description: recipe_info["instructions"], ingredient: recipe_info["unique_ingredient"],)
         end
 
         unless RecipeIngredient.find_by(recipe: unique_recipe, ingredient: unique_ingredient)
@@ -98,6 +98,7 @@ end
 puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 
 
+
 #   Recipe.create(
 #     name: repo["title"],
 #     rating: repo["spoonacularScore"],
@@ -105,3 +106,4 @@ puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 #     description: recipe_info["instructions"],
 #     prep_time: recipe_info["preparationMinutes"]
 #   )
+

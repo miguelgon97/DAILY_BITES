@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_134636) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_104804) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_134636) do
     t.string "photo_url"
   end
 
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -66,6 +69,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_134636) do
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+  
+  create_table "supermarkets", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+
   end
 
   create_table "user_ingredient", force: :cascade do |t|
@@ -85,15 +98,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_134636) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
     t.string "user_name"
+
     t.string "household"
     t.string "food_preferences"
     t.string "allergies"
     t.string "intolerances"
+
     t.string "photo"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

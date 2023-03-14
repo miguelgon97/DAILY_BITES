@@ -11,10 +11,10 @@
   <div id="show-card-title"><%= @recipe.name %></div>
   <div class="recipe-link">
     <% if current_user.favorited?(@recipe) %>
-      <i class="fa-solid fa-heart"></i>
-    <% else %>
+      <i class="fa-solid fa-heart" id="favorite-button"></i>
+      <% else %>
       <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
-        <i class="fa-regular fa-heart" data-controller="favorite" data-controller-target="icon"data-action="click->favorite#toggle"></i>
+        <i class="fa-regular fa-heart" id="favorite-button" data-controller="favorite" data-controller-target="icon" data-action="click->favorite#toggle"></i>
       <% end %>
     <% end %>
   </div>
@@ -34,6 +34,7 @@
     </ol>
   </div>
 </div>
+
 <!-- MODAL -->
 <div class="center-modal" data-controller="modal-transition">
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" data-modal-transition-target="list">
@@ -90,3 +91,4 @@
   </div>
   <a class="btn bites-button reviews-button" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Reviews</a>
 </div>
+

@@ -14,11 +14,11 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions d-flex">
-        <%= f.button :submit, "Log in" %>
+      <div class="form-actions d-flex justify-content-between">
+        <%= f.button :submit, "Log in", class:"bites-button" %>
         <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-          <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-          
+          <%= link_to "Sign up", new_registration_path(resource_name), class:"btn bites-button" %><br />
+
         <% end %>
       </div>
     <% end %>
