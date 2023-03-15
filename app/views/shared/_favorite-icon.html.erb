@@ -1,0 +1,3 @@
+<%= link_to toggle_favorite_recipe_path(recipe), data: { turbo_method: :post, action: "click->favorite-toggle#toggle", favorite_toggle_target: "link" }, remote: true do %>
+  <div class="like-icon <%= current_user.favorited?(recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'  %>"></div>
+<% end %>

@@ -11,11 +11,10 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </div>
-  <div class="position-relative mt-5">
+
+  <div class="position-relative mt-4" data-controller="favorite-toggle">
     <div class="recipe-link position-absolute" style="bottom: 0; right: 0">
-      <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
-        <div class="like-icon <%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'  %>" data-id="<%= @recipe.id %>"></div>
-      <% end %>
+      <%= render "shared/favorite-icon", recipe: @recipe %>
     </div>
     <div id="recipe-image">
       <%= image_tag @recipe.photo_url %>
@@ -42,7 +41,7 @@
 </div>
 
 <!-- MODAL -->
-<div class="center-modal" data-controller="modal-transition">
+<div class="center-modal bottom-padding-footer" data-controller="modal-transition">
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" data-modal-transition-target="list">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">

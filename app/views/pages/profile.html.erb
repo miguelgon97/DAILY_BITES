@@ -39,16 +39,9 @@
             <img src="<%= @user.photo %>" class="img-radius" alt="User-Profile-Image">
           </div>
           <h6 class="f-w-600 m-t-25 m-b-10"><%= @user.user_name %></h6>
-          <p class="text-muted"><%= @user.first_name %> | <%= @user.last_name %> | Born 23.05.1992</p>
+          <p class="text-muted"><%= @user.first_name %> | <%= @user.last_name %> | <%=  @random_date.strftime('%Y/%m/%d') %></p>
           <hr>
           <p class="text-muted m-t-15"><%= @user.email %></p>
-          <ul class="list-unstyled activity-leval">
-            <li class="active"></li>
-            <li class="active"></li>
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-          </ul>
           <div class="bg-c-yellow counter-block m-t-10 p-20">
             <div class="row">
               <div class="col-4">
@@ -56,8 +49,8 @@
                 <p><%= @user.all_favorites.count %></p>
               </div>
               <div class="col-4">
-                <i class="fa fa-user"></i>
-                <p>8562</p>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p><%= @ingredients_to_buy.count %></p>
               </div>
               <div class="col-4">
                 <i class="fa fa-suitcase"></i>
@@ -97,8 +90,116 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-   TODO!!!
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade bottom-padding-footer" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0" data-controller="toggle-delay">
+      <button class="btn bites-button generate-button" data-toggle-delay-target="button" data-action="click->toggle-delay#toggle">Generate my Plan</button>
+      <div data-toggle-delay-target="spinner" class="d-flex justify-content-center d-none" style="margin-top: 150px">
+        <div class="spinner-border text-secondary" role="status" style="width: 100px; height: 100px">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="weekly-container bottom-padding-footer d-none" data-toggle-delay-target="page">
+        <ul class="weekly-list list-unstyled">
+          <li>
+            <div class="card-product">
+              <img src="<%= @recipes.first.photo_url %>">
+              <div class="card-product-infos">
+                <h2>Monday</h2>
+                <p><%= @recipes.first.name %></p>
+                <div class="icon-position">
+                  <% @recipes.first.reviews.sample.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card-product">
+              <img src="<%= @recipes.second.photo_url %>">
+              <div class="card-product-infos">
+                <h2>Tuesday</h2>
+                <p><%= @recipes.second.name %></p>
+                <div class="icon-position">
+                  <% @recipes.second.reviews.sample.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card-product">
+              <img src="<%= @recipes.third.photo_url %>">
+              <div class="card-product-infos">
+                <h2>Wednesday</h2>
+                <p><%= @recipes.second.name %></p>
+                <div class="icon-position">
+                  <% @recipes.third.reviews.sample.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card-product">
+              <img src="<%= @recipes.fourth.photo_url %>">
+              <div class="card-product-infos">
+                <h2>Thursday</h2>
+                <p><%= @recipes.fourth.name %></p>
+                <div class="icon-position">
+                  <% @recipes.fourth.reviews.sample.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card-product">
+              <img src="<%= @recipes.fifth.photo_url %>">
+              <div class="card-product-infos">
+                <h2>Friday</h2>
+                <p><%= @recipes.fifth.name %></p>
+                <div class="icon-position">
+                  <% @recipes.fifth.reviews.sample.rating.times do  %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn bites-button shopping-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Shopping List
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Items to Buy</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="ingredients-container">
+                  <ul>
+                  <% @ingredients_to_buy.each do |ingredient| %>
+                    <li><%= ingredient.name %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bites-button">Supermarkets near you</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

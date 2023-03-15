@@ -28,5 +28,8 @@ application.register("reviews", ReviewsController)
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
+import ToggleDelayController from "./toggle_delay_controller"
+application.register("toggle-delay", ToggleDelayController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)

@@ -22,7 +22,11 @@ class RecipesController < ApplicationController
   def toggle_favorite
     @recipe = Recipe.find_by(id: params[:id])
     current_user.favorited?(@recipe) ? current_user.unfavorite(@recipe) : current_user.favorite(@recipe)
-    flash[:notice] = "Favorited #{@recipe.name}"
+
+    respond_to do |format|
+      format.html { flash[:notice] = "Favorited #{@recipe.name}" }
+      format.text { render partial: "shared/favorite-icon", locals: { recipe: @recipe }, formats: [:html] }
+    end
   end
 
   private
