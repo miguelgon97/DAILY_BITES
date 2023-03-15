@@ -20,22 +20,27 @@
   font-size: 15px;
   text-align: center;
   color: black;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recipe-card a {
   text-decoration: none;
   color: black;
 }
+.like-icon {
+  font-size:30px;
+}
 
-.recipe-link i {
-  color: #F6A127;
-  margin-left: 300px;
-  font-size: 25px;
+.like-icon a {
+  text-decoration: none;
+  color:  #F6A127
 }
 
 .recipe-link a {
   text-decoration: none;
+  color:  #F6A127
 }
 
 .recipe-card-container {
@@ -43,6 +48,9 @@
   align-items: end;
   height: 159px;
   margin: 16px auto;
+  border-bottom: solid;
+  border-bottom-color: #F6A127;
+  border-bottom-width: thin;
 }
 
 .recipe-card-container a {
@@ -90,8 +98,14 @@
   border:none;
 }
 
-.back-link i {
-  color: #F6A127;
-  margin-right: 310px;
-  font-size: 25px;
+.back-link {
+  background: $body-bg;
+  z-index: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  i {
+    color: #F6A127;
+    font-size: 25px;
+  }
 }

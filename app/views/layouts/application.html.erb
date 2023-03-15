@@ -6,20 +6,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+
     <% if !current_page?(root_path) %>
       <%= render "shared/navbar" %>
     <% end %>
-    <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
-
     <%= yield %>
+    <%= render "shared/flashes" %>
+    <% if !current_page?(root_path) %>
+      <%= render "shared/footer" %>
+    <% end %>
+
   </body>
 </html>

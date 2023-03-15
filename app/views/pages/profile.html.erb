@@ -65,7 +65,28 @@
               </div>
             </div>
           </div>
-          <p class="m-t-15 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <hr>
+          <div class="list-container">
+            <h2>Your most used ingredients</h2>
+            <ul class="list-unstyled ingredient-list">
+            <% @user.all_favorites.each do |favorite| %>
+              <li>
+                <% if favorite == @user.all_favorites.first %>
+                  <% class_css = "first-fav" %>
+                <% elsif favorite == @user.all_favorites.second %>
+                  <% class_css = "second-fav" %>
+                <% elsif favorite == @user.all_favorites.third %>
+                  <% class_css = "third-fav" %>
+                <% else %>
+                  <% class_css = "other-fav" %>
+                <% end %>
+                <p class="m-t-15 text-muted <%= class_css %>">
+                  <%= Recipe.find(favorite.favoritable_id).ingredients.sample.name %>
+                </p>
+              </li>
+            <% end %>
+            </ul>
+          </div>
           <hr>
           <div class="row justify-content-center user-social-link">
             <div class="col-auto"><a href="#!"><i class="fa-brands fa-square-facebook text-facebook"></i></a></div>
@@ -89,5 +110,3 @@
 <%# weekly plan can be the recipes that !!!include any of the 5 ingredients 7 recipes one for each day save them in an array %>
 <%#  array of recipes and sample aswell 7 times %>
 <%# should work %>
-
-

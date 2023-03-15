@@ -1,0 +1,16 @@
+
+.scroll-animated {
+  /* animation properties */
+  animation: my-animation 7s linear infinite;
+}
+
+
+@keyframes my-animation {
+  from {
+    transform: translateX(50px);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
