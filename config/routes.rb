@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get "ingredients", to: "ingredients#index"
   get "profile", to: "pages#profile"
+  get "map", to: "supermarkets#map"
 end

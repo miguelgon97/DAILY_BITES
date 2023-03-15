@@ -16,6 +16,9 @@ application.register("hello", HelloController)
 import IngredientValueController from "./ingredient_value_controller"
 application.register("ingredient-value", IngredientValueController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import ModalTransitionController from "./modal_transition_controller"
 application.register("modal-transition", ModalTransitionController)
 

@@ -1,13 +1,17 @@
 
 <div id="show-card" data-controller="reviews">
-  <div class="position-relative">
-    <div class="back-link">
+  <div class="position-relative w-100">
+    <div class="back-link position-absolute" style="left: 0">
       <%= link_to recipes_path, style: "font-size: 25px" do %>
         <i class="fa-solid fa-angle-left"></i>
       <% end %>
     </div>
-    <div id="show-card-title" class="position-absolute"><%= @recipe.name %></div>
+    <div>
+      <div id="show-card-title" class="position-absolute scroll-animated"><%= @recipe.name %></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </div>
+
   <div class="position-relative mt-4" data-controller="favorite-toggle">
     <div class="recipe-link position-absolute" style="bottom: 0; right: 0">
       <%= render "shared/favorite-icon", recipe: @recipe %>
@@ -34,11 +38,6 @@
       <%= @recipe.description.html_safe %>
     </ol>
   </div>
-     <div class="recipe-link">
-    <%= link_to toggle_favorite_recipe_path(@recipe), data: { turbo_method: :post }, remote: true do %>
-      <div class="like-icon <%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'  %>" data-id="<%= @recipe.id %>"></div>
-    <% end %>
-    </div>
 </div>
 
 <!-- MODAL -->
@@ -97,3 +96,14 @@
   </div>
   <a class="btn bites-button reviews-button" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Reviews</a>
 </div>
+
+<script>
+  let minChars = 20; // set the minimum number of characters
+  let title = document.getElementById('show-card-title'); // select the element to animate
+
+  if (title.innerText.length < minChars) {
+    title.classList.remove('scroll-animated'); // apply the animation class if the text length is above the threshold
+  };
+  console.log(title)
+
+</script>

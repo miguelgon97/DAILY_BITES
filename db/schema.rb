@@ -94,14 +94,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_104804) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
     t.string "user_name"
+
     t.string "household"
     t.string "food_preferences"
     t.string "allergies"
     t.string "intolerances"
+
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

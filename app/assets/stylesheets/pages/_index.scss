@@ -6,6 +6,11 @@
 @import "review";
 @import "weekly";
 
+@import "map";
+
+@import "moving_title";
+
+
 
 .orange-card {
   background-color: #fdfdfc;
@@ -69,24 +74,27 @@
   align-items: center;
 }
 
+#show-card {
+  border-radius: 10px;
+  width: 100%;
+}
+
 #show-card-title {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   justify-content: space-around;
-  height: 75px;
   align-items: center;
   border-bottom: #FFA500;
   background-color: #f4f4f4;
   font-size: x-large;
   text-align: center;
   top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 55px;
   font-size: 25px;
   height: unset;
   width: 75%;
   background: transparent;
-  overflow: scroll;
   white-space: nowrap;
+  -webkit-text-stroke-width: thin;
 }
 
 #show-card-item-title {
@@ -189,12 +197,6 @@ ol > li::before {
   margin-right: 8px;
   COLOR: #FFA500;
 }
-
-#show-card {
-  width: 360px;
-  border-radius: 10px;
-}
-
 
 #details i {
   color: #FFA500;
