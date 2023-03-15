@@ -50,6 +50,7 @@
   margin: 16px auto;
   border-bottom: solid;
   border-bottom-color: #F6A127;
+  border-bottom-width: thin;
 }
 
 .recipe-card-container a {
@@ -97,8 +98,14 @@
   border:none;
 }
 
-.back-link i {
-  color: #F6A127;
-  margin-right: 310px;
-  font-size: 25px;
+.back-link {
+  background: $body-bg;
+  z-index: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  i {
+    color: #F6A127;
+    font-size: 25px;
+  }
 }
