@@ -1,4 +1,9 @@
-<div class="bg-homepage position-relative">
+<div class="splash-screen" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'); background-size: cover;">
+  <%= image_tag("dbcomplete.png")%>
+  <div class="loading-bar"></div>
+  <h2 class="loading-text">Prepare to be amazed...</h2>
+</div>
+<div class="bg-homepage position-relative" style="display:none">
   <%= image_tag 'titlehome.png', class: "logo position-absolute" %>
   <div class="benfica">
     <div>
@@ -20,3 +25,24 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Wait for the page to finish loading
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get the splash screen and homepage elements
+    const splashScreen = document.querySelector(".splash-screen");
+    const homepage = document.querySelector(".bg-homepage");
+
+    // Hide the homepage element initially
+    homepage.style.display = "none";
+
+    // Set a timeout for the transition to the homepage
+    setTimeout(function() {
+      // Hide the splash screen and show the homepage
+      splashScreen.style.display = "none";
+      homepage.style.display = "block";
+    }, 3000); // Change the value (in milliseconds) to set the length of the delay
+  });
+</script>
+
+
