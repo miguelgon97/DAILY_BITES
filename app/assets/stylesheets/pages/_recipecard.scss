@@ -16,7 +16,6 @@
 .recipe-card h4 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-style: normal;
-  font-weight: 600;
   font-size: 15px;
   text-align: center;
   color: black;
@@ -109,3 +108,15 @@
     font-size: 25px;
   }
 }
+
+.recipe-card-container-profile h4 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  text-align: center;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
