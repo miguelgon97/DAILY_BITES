@@ -12,16 +12,16 @@
 </div>
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-      <div class="recipe-container">
+      <div class="recipe-container w-100">
         <% @user.all_favorites.each do |favorite| %>
           <div class="recipe-card-container">
             <%= link_to recipe_path(favorite.favoritable_id) do %>
-            <div class="recipe-card">
-              <div class="recipe-image"><img src="<%= Recipe.find(favorite.favoritable_id).photo_url %>" alt=""></div>
-              <div class="recipe-info">
-                <h4><%= Recipe.find(favorite.favoritable_id).name %></h4>
+              <div class="recipe-card">
+                <div class="recipe-image"><img src="<%= Recipe.find(favorite.favoritable_id).photo_url %>" alt=""></div>
+                <div class="recipe-info w-100">
+                  <h4><%= Recipe.find(favorite.favoritable_id).name %></h4>
+                </div>
               </div>
-            </div>
             <% end %>
           </div>
         <% end %>
