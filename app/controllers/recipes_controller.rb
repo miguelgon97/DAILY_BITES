@@ -16,7 +16,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @review = Review.new
-    @reviews = Review.where(recipe: @recipe)
+    @reviews = Review.where(recipe: @recipe).order(created_at: :desc)
+
   end
 
   def toggle_favorite

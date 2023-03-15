@@ -2,25 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal-transition"
 export default class extends Controller {
-  static targets = ["items", "form"]
-  connect() {
-    console.log(this.element)
-    console.log(this.itemsTarget)
-    console.log(this.formTarget)
-  }
+  static targets = ["openBtn", "closeBtn", "reviews"]
 
-  send(event) {
-    event.preventDefault()
+  transition(e) {
+    e.preventDefault()
 
-    fetch(this.formTarget.action, {
+    fetch(e.target.action, {
       method: "POST",
-      headers: { "Accept": "application/json" },
-      body: new FormData(this.formTarget)
+      headers: {
+        "Accept": "text/plain"
+      },
+      body: new FormData(e.target)
     })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data)
+      .then(response => response.text())
+      .then(data => {
+        this.reviewsTarget.outerHTML = data
+        this.closeBtnTarget.click()
+        this.openBtnTarget.click()
       })
   }
-
 }
+//this.listTarget.outerHTML = data

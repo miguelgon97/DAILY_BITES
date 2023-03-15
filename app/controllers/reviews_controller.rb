@@ -15,7 +15,10 @@ class ReviewsController < ApplicationController
     @review.recipe = @recipe
 
     if @review.save
-      redirect_to recipe_path(@recipe)
+      respond_to do |format|
+        format.html
+        format.text { render partial: "shared/review-modal", locals: { reviews: @recipe.reviews.order(created_at: :desc) }, formats: [:html] }
+      end
     else
       render :new, status: :unprocessable_entity
     end
