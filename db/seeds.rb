@@ -70,12 +70,12 @@ require 'byebug'
 # => repos is an `Array` of `Hashes`.
 response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=tuna&number2&apiKey=#{ENV['SPOON_API_KEY']}"
 repos = JSON.parse(response1)
-# puts "destroying all ingredients and recipes"
+puts "destroying all ingredients and recipes"
 
-# RecipeIngredient.destroy_all
-# Recipe.destroy_all
-# Ingredient.destroy_all
-# puts "Creating recipes and Ingredients"
+RecipeIngredient.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
+puts "Creating recipes and Ingredients"
 
 repos.each do |repo|
   response2 = RestClient.get "https://api.spoonacular.com/recipes/#{repo['id']}/information?includeNutrition=false&apiKey=#{ENV['SPOON_API_KEY']}"
