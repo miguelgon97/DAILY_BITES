@@ -1,0 +1,6 @@
+
+meta_name: "Daily Bites"
+meta_title: "Daily Bites"
+meta_description: "The food app that's gonna change your life!"
+meta_image: "db.png" # should exist in `app/assets/images/`
+twitter_account: "@mrgoncalves97"
