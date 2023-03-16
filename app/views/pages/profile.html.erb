@@ -53,14 +53,14 @@
                 <p><%= @ingredients_to_buy.count %></p>
               </div>
               <div class="col-4">
-                <i class="fa fa-suitcase"></i>
-                <p>189</p>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>logout</p>
               </div>
             </div>
           </div>
           <hr>
           <div class="list-container">
-            <h2>Your most used ingredients</h2>
+            <h2>Preferences</h2>
             <ul class="list-unstyled ingredient-list">
             <% @user.all_favorites.each do |favorite| %>
               <li>
@@ -103,7 +103,7 @@
           <li>
             <div class="card-product">
               <img src="<%= @recipes.first.photo_url %>">
-              <div class="card-product-infos">
+              <div class="card-product-infos plan-icon">
                 <h2>Monday</h2>
                 <p><%= @recipes.first.name %></p>
                 <div class="icon-position">
@@ -117,7 +117,7 @@
           <li>
             <div class="card-product">
               <img src="<%= @recipes.second.photo_url %>">
-              <div class="card-product-infos">
+              <div class="card-product-infos plan-icon">
                 <h2>Tuesday</h2>
                 <p><%= @recipes.second.name %></p>
                 <div class="icon-position">
@@ -131,7 +131,7 @@
           <li>
             <div class="card-product">
               <img src="<%= @recipes.third.photo_url %>">
-              <div class="card-product-infos">
+              <div class="card-product-infos plan-icon">
                 <h2>Wednesday</h2>
                 <p><%= @recipes.second.name %></p>
                 <div class="icon-position">
@@ -145,7 +145,7 @@
           <li>
             <div class="card-product">
               <img src="<%= @recipes.fourth.photo_url %>">
-              <div class="card-product-infos">
+              <div class="card-product-infos plan-icon">
                 <h2>Thursday</h2>
                 <p><%= @recipes.fourth.name %></p>
                 <div class="icon-position">
@@ -159,7 +159,7 @@
           <li>
             <div class="card-product">
               <img src="<%= @recipes.fifth.photo_url %>">
-              <div class="card-product-infos">
+              <div class="card-product-infos plan-icon">
                 <h2>Friday</h2>
                 <p><%= @recipes.fifth.name %></p>
                 <div class="icon-position">
