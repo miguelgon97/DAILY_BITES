@@ -81,9 +81,18 @@ $border-radius-sm: 2px;
   -moz-appearance: none;
   appearance: none;
   border-radius: 10px;
+  font-size: 16px;
 }
 
 textarea.form-control {
   min-height: calc(1.5em + 0.75rem + 2px);
   border: none;
+}
+
+.ts-control, .ts-control input, .ts-dropdown {
+  font-smoothing: inherit;
+  color: #303030;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 18px;
 }
