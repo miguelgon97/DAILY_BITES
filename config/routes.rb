@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: %i[show update]
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: %i[create]
   end
-  resources :users, only: %i[show update]
 
   get "ingredients", to: "ingredients#index"
   get "profile", to: "pages#profile"

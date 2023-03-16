@@ -53,8 +53,10 @@
                 <p><%= @ingredients_to_buy.count %></p>
               </div>
               <div class="col-4">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <p>logout</p>
+                <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <p>logout</p>
+                <% end %>
               </div>
             </div>
           </div>
