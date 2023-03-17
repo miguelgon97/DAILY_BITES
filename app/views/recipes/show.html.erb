@@ -44,18 +44,8 @@
 <div class="center-modal bottom-padding-footer" data-controller="modal-transition">
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 id="orange-text"><%= @reviews.count %></h1>
-          <h1 class="modal-title fs-5" id="exampleModalToggleLabel"> Reviews</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body link-color">
-          <%= render "shared/review-modal", reviews: @reviews %>
-        </div>
-        <div class="modal-footer">
-          <button class="btn bites-button create-button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Leave a Review</button>
-        </div>
+      <div class="modal-content" data-modal-transition-target="reviews">
+        <%= render "shared/review-modal", reviews: @reviews %>
       </div>
     </div>
   </div>

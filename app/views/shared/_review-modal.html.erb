@@ -1,18 +1,28 @@
-<div data-modal-transition-target="reviews">
-  <% reviews.each do |review| %>
-    <%= link_to user_path(review.user) do %>
-    <div class="card-product">
-      <img src="<%= review.photo %>" />
-      <div class="card-product-infos">
-        <h2><%= review.user_name %></h2>
-        <p><%= review.comment %></p>
-        <div class="icon-position">
-          <% review.rating.times do %>
-          <i class="fa-solid fa-star"></i>
-        <% end %>
+<div class="modal-header">
+  <h1 id="orange-text"><%= reviews.count %></h1>
+  <h1 class="modal-title fs-5" id="exampleModalToggleLabel"> Reviews</h1>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body link-color">
+  <div>
+    <% reviews.each do |review| %>
+      <%= link_to user_path(review.user) do %>
+        <div class="card-product">
+          <img src="<%= review.photo %>" />
+          <div class="card-product-infos">
+            <h2><%= review.user_name %></h2>
+            <p><%= review.comment %></p>
+            <div class="icon-position">
+              <% review.rating.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn bites-button create-button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Leave a Review</button>
 </div>
