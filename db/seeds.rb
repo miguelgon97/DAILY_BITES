@@ -42,15 +42,15 @@ users = []
 #     end
 #   )
 # end
-users << User.create(first_name: "Miguel", last_name: "Gonçalves", email: Faker::Internet.email, password: 123456, user_name:"Mgoncalves97", photo: "https://avatars.githubusercontent.com/u/122788524?v=4")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/34249168?v=4")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1631269627/uyrtsrgexy7idwrlvr5k.jpg")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1631269627/uyrtsrgexy7idwrlvr5k.jpg")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/14589?v=4")
-users << User.create(first_name: "Miguel", last_name: "Figueiredo", email: Faker::Internet.email, password: 123456, user_name: "Sexy_Jesus", photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1673277208/ucy8m2c4kdppmnv9dkga.jpg")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1673900496/s6nqcj4a04urtomwrywg.jpg")
-users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/122548090?v=4")
-puts "done"
+# users << User.create(first_name: "Miguel", last_name: "Gonçalves", email: Faker::Internet.email, password: 123456, user_name:"Mgoncalves97", photo: "https://avatars.githubusercontent.com/u/122788524?v=4")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/34249168?v=4")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1631269627/uyrtsrgexy7idwrlvr5k.jpg")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1631269627/uyrtsrgexy7idwrlvr5k.jpg")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/14589?v=4")
+# users << User.create(first_name: "Miguel", last_name: "Figueiredo", email: Faker::Internet.email, password: 123456, user_name: "Sexy_Jesus", photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1673277208/ucy8m2c4kdppmnv9dkga.jpg")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1673900496/s6nqcj4a04urtomwrywg.jpg")
+# users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 123456, user_name: Faker::FunnyName.name, photo: "https://avatars.githubusercontent.com/u/122548090?v=4")
+# puts "done"
 
 require "json"
 require "rest-client"
@@ -68,14 +68,14 @@ require 'byebug'
 #   end
 # end
 # => repos is an `Array` of `Hashes`.
-response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=tuna&number2&apiKey=#{ENV['SPOON_API_KEY']}"
+response1 = RestClient.get "https://api.spoonacular.com/recipes/findByIngredients?ingredients=spaghetti&number2&apiKey=#{ENV['SPOON_API_KEY']}"
 repos = JSON.parse(response1)
-puts "destroying all ingredients and recipes"
+# puts "destroying all ingredients and recipes"
 
-RecipeIngredient.destroy_all
-Recipe.destroy_all
-Ingredient.destroy_all
-puts "Creating recipes and Ingredients"
+# RecipeIngredient.destroy_all
+# Recipe.destroy_all
+# Ingredient.destroy_all
+# puts "Creating recipes and Ingredients"
 
 repos.each do |repo|
   response2 = RestClient.get "https://api.spoonacular.com/recipes/#{repo['id']}/information?includeNutrition=false&apiKey=#{ENV['SPOON_API_KEY']}"
@@ -100,11 +100,11 @@ repos.each do |repo|
   end
 end
 
-Recipe.all.each do |recipe|
-  users.shuffle.each do |user|
-    Review.create(comment: Faker::Marketing.buzzwords, rating: number.sample, user:, recipe:)
-  end
-end
+# Recipe.all.each do |recipe|
+#   users.shuffle.each do |user|
+#     Review.create(comment: Faker::Marketing.buzzwords, rating: number.sample, user:, recipe:)
+#   end
+# end
 
 puts "Created #{Recipe.count}recipes----#{Ingredient.count}ingredients"
 puts "Created #{Review.count} reviews"
