@@ -20,9 +20,9 @@ number = [1, 2, 3, 4, 5]
 
 # puts "done"
 
-puts "destroying all users and Reviews"
-Review.destroy_all
-User.destroy_all
+# puts "destroying all users and Reviews"
+# Review.destroy_all
+# User.destroy_all
 
 puts "creating users"
 users = []
