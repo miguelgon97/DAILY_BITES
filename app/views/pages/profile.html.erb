@@ -52,7 +52,7 @@
                 <i class="fa-solid fa-cart-shopping"></i>
                 <p><%= @ingredients_to_buy.count %></p>
               </div>
-              <div class="col-4">
+              <div class="col-4 logout-button" style="text-decoration: none; color: white">
                 <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
                   <i class="fa-solid fa-right-from-bracket"></i>
                   <p>logout</p>
